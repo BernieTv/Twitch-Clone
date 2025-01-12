@@ -16,12 +16,12 @@ export const MESSAGES = {
 		`📝 О себе: <b>${user.bio || 'Не указано'}</b>\n\n` +
 		`🔧 Нажмите на кнопку ниже, чтобы перейти к настройкам профиля.`,
 	follows: (user: User) =>
-		`📺 <a href="https://teastream.ru/${user.username}">${user.username}</a>`,
+		`📺 <a href="https://twitch-clone-swart-kappa.vercel.app/${user.username}">${user.username}</a>`,
 	resetPassword: (token: string, metadata: SessionMetadata) =>
 		`<b>🔒 Сброс пароля</b>\n\n` +
 		`Вы запросили сброс пароля для вашей учетной записи на платформе <b>UzLiveStream</b>.\n\n` +
 		`Чтобы создать новый пароль, пожалуйста, перейдите по следующей ссылке:\n\n` +
-		`<b><a href="https://teastream.ru/account/recovery/${token}">Сбросить пароль</a></b>\n\n` +
+		`<b><a href="https://twitch-clone-swart-kappa.vercel.app/account/recovery/${token}">Сбросить пароль</a></b>\n\n` +
 		`📅 <b>Дата запроса:</b> ${new Date().toLocaleDateString()} в ${new Date().toLocaleTimeString()}\n\n` +
 		`🖥️ <b>Информация о запросе:</b>\n\n` +
 		`🌍 <b>Расположение:</b> ${metadata.location.country}, ${metadata.location.city}\n` +
@@ -55,24 +55,24 @@ export const MESSAGES = {
 		`Ваш аккаунт был полностью стерт из базы данных UzLiveStream. Все ваши данные и информация были удалены безвозвратно. ❌\n\n` +
 		`🔒 Вы больше не будете получать уведомления в Telegram и на почту.\n\n` +
 		`Если вы захотите вернуться на платформу, вы можете зарегистрироваться по следующей ссылке:\n` +
-		`<b><a href="https://teastream.ru/account/create">Зарегистрироваться на UzLiveStream</a></b>\n\n` +
+		`<b><a href="https://twitch-clone-swart-kappa.vercel.app/account/create">Зарегистрироваться на UzLiveStream</a></b>\n\n` +
 		`Спасибо, что были с нами! Мы всегда будем рады видеть вас на платформе. 🚀\n\n` +
 		`С уважением,\n` +
 		`Команда UzLiveStream`,
 	streamStart: (channel: User) =>
 		`<b>📡 На канале ${channel.displayName} началась трансляция!</b>\n\n` +
-		`Смотрите здесь: <a href="https://teastream.ru/${channel.username}">Перейти к трансляции</a>`,
+		`Смотрите здесь: <a href="https://twitch-clone-swart-kappa.vercel.app/${channel.username}">Перейти к трансляции</a>`,
 	newFollowing: (follower: User, followersCount: number) =>
-		`<b>У вас новый подписчик!</b>\n\nЭто пользователь <a href="https://teastream.ru/${follower.username}">${follower.displayName}</a>\n\nИтоговое количество подписчиков на вашем канале: ${followersCount}`,
+		`<b>У вас новый подписчик!</b>\n\nЭто пользователь <a href="https://twitch-clone-swart-kappa.vercel.app/${follower.username}">${follower.displayName}</a>\n\nИтоговое количество подписчиков на вашем канале: ${followersCount}`,
 	newSponsorship: (plan: SponsorshipPlan, sponsor: User) =>
 		`<b>🎉 Новое спонсор!</b>\n\n` +
 		`Вы получили новое спонсорство на план <b>${plan.title}</b>.\n` +
 		`💰 Сумма: <b>${plan.price} ₽</b>\n` +
-		`👤 Спонсор: <a href="https://teastream.ru/${sponsor.username}">${sponsor.displayName}</a>\n` +
+		`👤 Спонсор: <a href="https://twitch-clone-swart-kappa.vercel.app/${sponsor.username}">${sponsor.displayName}</a>\n` +
 		`📅 Дата оформления: <b>${new Date().toLocaleDateString()} в ${new Date().toLocaleTimeString()}</b>`,
 	enableTwoFactor:
 		`🔐 Обеспечьте свою безопасность!\n\n` +
-		`Включите двухфакторную аутентификацию в <a href="https://teastream.ru/dashboard/settings">настройках аккаунта</a>.`,
+		`Включите двухфакторную аутентификацию в <a href="https://twitch-clone-swart-kappa.vercel.app/dashboard/settings">настройках аккаунта</a>.`,
 	verifyChannel:
 		`<b>🎉 Поздравляем! Ваш канал верифицирован</b>\n\n` +
 		`Мы рады сообщить, что ваш канал теперь верифицирован, и вы получили официальный значок.\n\n` +

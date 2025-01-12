@@ -6,12 +6,17 @@ export const BUTTONS = {
 			Markup.button.callback('📜 Мои подписки', 'follows'),
 			Markup.button.callback('👤 Просмотреть профиль', 'me')
 		],
-		[Markup.button.url('🌐 На сайт', 'https://teastream.ru')]
+		[
+			Markup.button.url(
+				'🌐 На сайт',
+				'https://twitch-clone-swart-kappa.vercel.app'
+			)
+		]
 	]),
 	profile: Markup.inlineKeyboard([
 		Markup.button.url(
 			'⚙️ Настройки аккаунта',
-			'https://teastream.ru/dashboard/settings'
+			'https://twitch-clone-swart-kappa.vercel.app/dashboard/settings'
 		)
 	])
 }

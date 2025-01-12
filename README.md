@@ -129,7 +129,7 @@ POSTGRES_USER='root'
 POSTGRES_PASSWORD='123456'
 POSTGRES_HOST='localhost'
 POSTGRES_PORT='5433'
-POSTGRES_DATABASE='teastream'
+POSTGRES_DATABASE='*'
 POSTGRES_URI='postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DATABASE}'
 
 REDIS_USER='default'
@@ -209,4 +209,4 @@ This project is licensed under the MIT License. 📝
 
 ## ✨ Demo
 
-Check out the live demo here: [Twitch Clone Demo](https://your-demo-link.com) 🎥
+Check out the live demo here: [Twitch Clone Demo](https://twitch-clone-swart-kappa.vercel.app) 🎥
