@@ -5,11 +5,14 @@ import RedisStore from 'connect-redis'
 import * as cookieParser from 'cookie-parser'
 import * as session from 'express-session'
 import * as graphqlUploadExpress from 'graphql-upload/graphqlUploadExpress.js'
+import { setDefaultResultOrder } from 'node:dns'
 
 import { CoreModule } from './core/core.module'
 import { RedisService } from './core/redis/redis.service'
 import { ms, type StringValue } from './shared/utils/ms.util'
 import { parseBoolean } from './shared/utils/parse-boolean.util'
+
+setDefaultResultOrder('ipv4first')
 
 async function bootstrap() {
 	const app = await NestFactory.create(CoreModule, { rawBody: true })
