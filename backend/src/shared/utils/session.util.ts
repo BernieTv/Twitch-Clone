@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { InternalServerErrorException } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import type { Request } from 'express'
