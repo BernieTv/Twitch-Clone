@@ -1,10 +1,7 @@
 import { ApolloClient, InMemoryCache, split } from '@apollo/client'
-import { setContext } from '@apollo/client/link/context'
 import { WebSocketLink } from '@apollo/client/link/ws'
 import { getMainDefinition } from '@apollo/client/utilities'
 import createUploadLink from 'apollo-upload-client/createUploadLink.mjs'
-// @ts-ignore
-import { useCookies } from 'next-client-cookies'
 
 import { SERVER_URL, WEBSOCKET_URL } from './constants/url.constants'
 
@@ -15,17 +12,6 @@ const httpLink = createUploadLink({
 		'apollo-require-preflight': 'true'
 	},
 	fetchOptions: { credentials: 'include' }
-})
-
-const authLink = setContext(async (_, { headers }) => {
-	const cookie = await useCookies().get('session')
-
-	return {
-		headers: {
-			...headers,
-			cookie
-		}
-	}
 })
 
 const wsLink = new WebSocketLink({
@@ -49,7 +35,7 @@ const splitLink = split(
 )
 
 export const client = new ApolloClient({
-	link: authLink.concat(splitLink),
+	link: splitLink,
 	cache: new InMemoryCache(),
 	credentials: 'include'
 })
