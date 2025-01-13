@@ -1,3 +1,5 @@
+'use client'
+
 import { ApolloProvider } from '@apollo/client'
 import type { PropsWithChildren } from 'react'
 

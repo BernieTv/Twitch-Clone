@@ -1,11 +1,10 @@
-'server-only'
-
 import { ApolloClient, InMemoryCache, split } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 import { WebSocketLink } from '@apollo/client/link/ws'
 import { getMainDefinition } from '@apollo/client/utilities'
 import createUploadLink from 'apollo-upload-client/createUploadLink.mjs'
-import { cookies } from 'next/headers'
+// @ts-ignore
+import { useCookies } from 'next-client-cookies'
 
 import { SERVER_URL, WEBSOCKET_URL } from './constants/url.constants'
 
@@ -19,7 +18,7 @@ const httpLink = createUploadLink({
 })
 
 const authLink = setContext(async (_, { headers }) => {
-	const cookie = await cookies()
+	const cookie = await useCookies()
 
 	return {
 		headers: {
