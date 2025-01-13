@@ -2,7 +2,16 @@ import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
 
 const cspHeader = `
-    script-src 'self' https://twitch-clone-ag5v.onrender.com;
+    default-src 'self';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://twitch-clone-ag5v.onrender.com;
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' blob: data:;
+    font-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+    upgrade-insecure-requests;
 `
 
 const withNextIntl = createNextIntlPlugin('./src/libs/i18n/request.ts')
