@@ -286,7 +286,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/bekzod/Desktop/Projects/JavaScript-TypeScript/twitch-clone/backend/prisma/generated",
+      "value": "/home/bekzod/Desktop/Projects/JavaScript-TypeScript/FinishedJS-TSProjects/twitch-clone/backend/prisma/generated",
       "fromEnvVar": null
     },
     "config": {
@@ -300,7 +300,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/bekzod/Desktop/Projects/JavaScript-TypeScript/twitch-clone/backend/prisma/schema.prisma",
+    "sourceFilePath": "/home/bekzod/Desktop/Projects/JavaScript-TypeScript/FinishedJS-TSProjects/twitch-clone/backend/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -314,6 +314,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {

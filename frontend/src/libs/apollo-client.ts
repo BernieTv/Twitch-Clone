@@ -8,6 +8,10 @@ import { SERVER_URL, WEBSOCKET_URL } from './constants/url.constants'
 const httpLink = createUploadLink({
 	uri: SERVER_URL,
 	credentials: 'include',
+	headers: {
+		'apollo-require-preflight': 'true'
+	},
+	fetchOptions: { credentials: 'include' }
 })
 
 const wsLink = new WebSocketLink({
@@ -32,5 +36,6 @@ const splitLink = split(
 
 export const client = new ApolloClient({
 	link: splitLink,
-	cache: new InMemoryCache()
+	cache: new InMemoryCache(),
+	credentials: 'include'
 })
