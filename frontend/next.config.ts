@@ -2,7 +2,7 @@ import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
 
 const cspHeader = `
-    default-src 'self' https://twitch-clone-ag5v.onrender.com/graphql wss://twitch-clone-ag5v.onrender.com wss://twitch-clone-ag5v.onrender.com/graphql;
+    default-src 'self' https://twitch-clone-ag5v.onrender.com/graphql wss://twitch-clone-ag5v.onrender.com wss://twitch-clone-ag5v.onrender.com/graphql https://bekzod-twitch-clone.s3.us-east-1.amazonaws.com/*;
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://twitch-clone-ag5v.onrender.com https://twitch-clone-ag5v.onrender.com/graphql;
     style-src 'self' 'unsafe-inline';
     font-src 'self';
