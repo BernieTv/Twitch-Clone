@@ -18,7 +18,7 @@ const httpLink = createUploadLink({
 })
 
 const authLink = setContext(async (_, { headers }) => {
-	const cookie = await useCookies()
+	const cookie = await useCookies().get('session')
 
 	return {
 		headers: {
