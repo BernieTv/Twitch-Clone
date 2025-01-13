@@ -36,6 +36,7 @@ async function bootstrap() {
 			resave: false,
 			saveUninitialized: false,
 			cookie: {
+				domain: config.getOrThrow<string>('SESSION_DOMAIN'),
 				maxAge: ms(config.getOrThrow<StringValue>('SESSION_MAX_AGE')),
 				httpOnly: parseBoolean(
 					config.getOrThrow<string>('SESSION_HTTP_ONLY')
@@ -43,7 +44,7 @@ async function bootstrap() {
 				secure: parseBoolean(
 					config.getOrThrow<string>('SESSION_SECURE')
 				),
-				sameSite: 'lax'
+				sameSite: 'none'
 			},
 			store: new RedisStore({
 				client: redis,
