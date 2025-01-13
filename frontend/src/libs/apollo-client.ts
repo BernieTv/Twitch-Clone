@@ -18,12 +18,11 @@ const httpLink = createUploadLink({
 
 const authLink = setContext(async (_, { headers }) => {
 	const cookie = await cookies()
-	const token = cookie.get('session')
 
 	return {
 		headers: {
 			...headers,
-			authorization: token ? `Bearer ${token}` : ''
+			cookie
 		}
 	}
 })
