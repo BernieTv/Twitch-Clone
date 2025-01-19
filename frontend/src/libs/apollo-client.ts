@@ -3,9 +3,9 @@ import { HttpLink } from '@apollo/client'
 import { WebSocketLink } from '@apollo/client/link/ws'
 import { getMainDefinition } from '@apollo/client/utilities'
 import {
-	NextSSRApolloClient,
-	NextSSRInMemoryCache
-} from '@apollo/experimental-nextjs-app-support/ssr'
+	ApolloClient,
+	InMemoryCache
+} from '@apollo/experimental-nextjs-app-support'
 
 import { SERVER_URL, WEBSOCKET_URL } from './constants/url.constants'
 
@@ -39,9 +39,9 @@ export function makeClient() {
 		httpLink
 	)
 
-	return new NextSSRApolloClient({
+	return new ApolloClient({
 		link: splitLink,
-		cache: new NextSSRInMemoryCache(),
+		cache: new InMemoryCache(),
 		credentials: 'include'
 	})
 }
