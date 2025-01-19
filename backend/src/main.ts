@@ -33,10 +33,9 @@ async function bootstrap() {
 		session({
 			secret: config.getOrThrow<string>('SESSION_SECRET'),
 			name: config.getOrThrow<string>('SESSION_NAME'),
-			resave: true,
+			resave: false,
 			saveUninitialized: false,
 			cookie: {
-				domain: config.getOrThrow<string>('SESSION_DOMAIN'),
 				maxAge: ms(config.getOrThrow<StringValue>('SESSION_MAX_AGE')),
 				httpOnly: parseBoolean(
 					config.getOrThrow<string>('SESSION_HTTP_ONLY')
@@ -56,7 +55,7 @@ async function bootstrap() {
 	app.enableCors({
 		origin: config.getOrThrow<string>('ALLOWED_ORIGIN'),
 		credentials: true,
-		exposedHeaders: ['set-cookie', 'trust proxy']
+		exposedHeaders: ['set-cookie']
 	})
 
 	await app.listen(config.getOrThrow<number>('APPLICATION_PORT'))
