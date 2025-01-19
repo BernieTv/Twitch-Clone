@@ -1,11 +1,7 @@
 import { split } from '@apollo/client'
-import { HttpLink } from '@apollo/client'
+import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client'
 import { WebSocketLink } from '@apollo/client/link/ws'
 import { getMainDefinition } from '@apollo/client/utilities'
-import {
-	ApolloClient,
-	InMemoryCache
-} from '@apollo/experimental-nextjs-app-support'
 
 import { SERVER_URL, WEBSOCKET_URL } from './constants/url.constants'
 

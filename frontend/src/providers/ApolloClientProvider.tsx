@@ -1,14 +1,10 @@
 'use client'
 
-import { ApolloNextAppProvider } from '@apollo/experimental-nextjs-app-support'
+import { ApolloProvider } from '@apollo/client'
 import type { PropsWithChildren } from 'react'
 
 import { makeClient } from '@/libs/apollo-client'
 
 export function ApolloClientProvider({ children }: PropsWithChildren<unknown>) {
-	return (
-		<ApolloNextAppProvider makeClient={makeClient}>
-			{children}
-		</ApolloNextAppProvider>
-	)
+	return <ApolloProvider client={makeClient()}>{children}</ApolloProvider>
 }
