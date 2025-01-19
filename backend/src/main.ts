@@ -65,7 +65,7 @@ async function bootstrap() {
 			}
 		},
 		allowedHeaders:
-			'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Observe',
+			'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Observe apollo-require-preflight',
 		methods: 'GET,PUT,POST,DELETE,UPDATE,OPTIONS',
 		credentials: true,
 		exposedHeaders: ['set-cookie']
