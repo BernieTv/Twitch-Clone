@@ -40,7 +40,7 @@ async function bootstrap() {
 				secure: parseBoolean(
 					config.getOrThrow<string>('SESSION_SECURE')
 				),
-				sameSite: 'lax'
+				sameSite: false
 			},
 			store: new RedisStore({
 				client: redis,
