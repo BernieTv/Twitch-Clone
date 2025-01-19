@@ -33,9 +33,10 @@ async function bootstrap() {
 		session({
 			secret: config.getOrThrow<string>('SESSION_SECRET'),
 			name: config.getOrThrow<string>('SESSION_NAME'),
-			resave: false,
+			resave: true,
 			saveUninitialized: false,
 			cookie: {
+				domain: config.getOrThrow<string>('SESSION_DOMAIN'),
 				maxAge: ms(config.getOrThrow<StringValue>('SESSION_MAX_AGE')),
 				httpOnly: parseBoolean(
 					config.getOrThrow<string>('SESSION_HTTP_ONLY')
@@ -52,21 +53,8 @@ async function bootstrap() {
 		})
 	)
 
-	const whitelist = [config.getOrThrow<string>('ALLOWED_ORIGIN')]
-
 	app.enableCors({
-		origin: function (origin, callback) {
-			if (whitelist.indexOf(origin) !== -1) {
-				console.log('allowed cors for:', origin)
-				callback(null, true)
-			} else {
-				console.log('blocked cors for:', origin)
-				callback(new Error('Not allowed by CORS'))
-			}
-		},
-		allowedHeaders:
-			'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Observe apollo-require-preflight',
-		methods: 'GET,PUT,POST,DELETE,UPDATE,OPTIONS',
+		origin: config.getOrThrow<string>('ALLOWED_ORIGIN'),
 		credentials: true,
 		exposedHeaders: ['set-cookie']
 	})

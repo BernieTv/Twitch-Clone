@@ -8,6 +8,9 @@ import { SERVER_URL, WEBSOCKET_URL } from './constants/url.constants'
 const httpLink = createUploadLink({
 	uri: SERVER_URL,
 	credentials: 'include',
+	headers: {
+		'apollo-require-preflight': 'true'
+	},
 	fetchOptions: { credentials: 'include' }
 })
 
