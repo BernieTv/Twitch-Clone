@@ -21,33 +21,7 @@ export default function middleware(request: NextRequest) {
 		return NextResponse.redirect(new URL('/dashboard/settings', url))
 	}
 
-	const cspHeader = `
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://twitch-clone-ag5v.onrender.com https://twitch-clone-ag5v.onrender.com/graphql;
-`
-	// Replace newline characters and spaces
-	const contentSecurityPolicyHeaderValue = cspHeader
-		.replace(/\s{2,}/g, ' ')
-		.trim()
-
-	const requestHeaders = new Headers(request.headers)
-
-	requestHeaders.set(
-		'Content-Security-Policy',
-		contentSecurityPolicyHeaderValue
-	)
-
-	const response = NextResponse.next({
-		request: {
-			headers: requestHeaders
-		}
-	})
-
-	response.headers.set(
-		'Content-Security-Policy',
-		contentSecurityPolicyHeaderValue
-	)
-
-	return response
+	return NextResponse.next()
 }
 
 export const config = {
